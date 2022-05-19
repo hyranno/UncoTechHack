@@ -1,0 +1,83 @@
+<script data-zip-path="bundle/script.js" data-zip-target="src" type="text/javascript"></script>
+<link data-zip-path="bundle/style.css" data-zip-target="href" rel="stylesheet">
+<datalist data-zip-cssvars="true">
+  <data value="bundle/green.svg">--green_svg</data>
+  <data value="bundle/red.svg">--red_svg</data>
+</datalist>
+
+Most web pages contain various files like HTML, scripts, CSS, images and so on.
+Lots of files make lots of HTTP requests then make network slower.
+To reduce the number of the requests, some bundlers like webpack are used.
+This article proposes to use zip instead of bundler,
+ for people who don't like installing or rellying on specific bundler.
+Ideally, downloading bundle and storing caches of each files should be done on lower layer.
+But for today, this article use JavaScript on browser to handle the zip.
+<br /><br />
+Let's begin with the overview.
+<ol>
+  <li>
+    Browser downloads the initial page.
+  </li>
+  <li>
+    Script on the initial page requests the zip.
+  </li>
+  <li>
+    Script attaches the file contents to the page,
+     getting the files from the zip instead of HTTP requests.
+  </li>
+  <li>
+    If the appended page includes more dependancy to other files, repeat 3.
+  </li>
+</ol>
+<br />
+<figure>
+  <img data-zip-path="bundle/nobundle.svg" data-zip-target="src">
+  <figcaption>non-bundled web page</figcaption>
+</figure>
+<br />
+<figure>
+  <img data-zip-path="bundle/zipped.svg" data-zip-target="src">
+  <figcaption>zipped web page</figcaption>
+</figure>
+<br />
+This page itself is a sample implementation of this concept.
+Following texts show more details based on this implementation.
+This implementation may be not perfect, so take it just as a sample or a help for understanding.
+You can take a look at the source of this page,
+ and <a href="resources/bundle.zip">bundle.zip</a> which is downloaded with this page.
+<br /><br />
+At first browser downloads the initial page.
+What the initial page should contain are
+  some light weight HTML for the initial rendering,
+  scripts to download the zip with ajax,
+  and the scripts to handle the zip.
+Requesting the zip file is nothing more than well-known ajax.
+Just remember the zip is binary file so get it as a blob, dataURI, or something like that.
+The <a href="https://gildas-lormeau.github.io/zip.js/">zip.js by gildas-lormeau</a> is used in this page to handle zip.
+It includes file systems for zip, not only deflate/inflate algorithms.
+<br /><br />
+The contents should not make HTTP requests by itself, and should have "which file in the zip is needed" and "where to attach it."
+So when your content HTML includes
+<code class="multiline delete">  &lt;script src="script.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;link href="style.css" rel="stylesheet"&gt;
+  &lt;img src="image.png"&gt;</code>
+then it should be replased with
+<code class="multiline add">  &lt;script data-zip-path="script.js" data-zip-target="src" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;link data-zip-path="style.css" data-zip-target="href" rel="stylesheet"&gt;
+  &lt;img data-zip-path="image.png" data-zip-target="src"&gt;</code>
+and script can attach the dataURI of the decompressed file to the target attribute.
+Scripts will not be evaluated when their "src" attribute changed,
+ thus you will have to create another element,
+ like this page does it with MutationObserver.
+<br /><br />
+Not only HTML, but also CSS will makes some requests for images.
+When your CSS includes <code class="delete">url("image.png")</code>
+ replase it with variable <code class="add">var(--image_png)</code>, then add
+<code class="multiline add">  &lt;datalist data-zip-cssvars="true"&gt;
+    &lt;data value="image.png"&gt;--image_png&lt;/data&gt;
+  &lt;/datalist&gt;</code>
+to your HTML and script can attach the dataURI of the decompressed file to the CSS variable.
+<br /><br />
+In case the page dynamically changes or contains recursive file inclusion,
+ you have to attach the decompressed files time to time.
+So watching the page using MutationObserver for new nodes with "data-zip-path" attribute may work.

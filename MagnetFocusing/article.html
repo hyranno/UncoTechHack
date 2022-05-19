@@ -1,0 +1,221 @@
+Intensifying Magnets with Optimization of Magnetic Dipole directions
+<link rel="stylesheet" href="resources\LaTeXML.css" type="text/css"/>
+<link rel="stylesheet" href="resources\ltx-article.css" type="text/css"/>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<div id="section-main">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<div class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Intensifying Magnets with Optimization of Magnetic Dipole directions</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Hirano Takeshi
+</span><span class="ltx_author_notes"><span>hyranno4pub@gmail.com http://uncotechhack.net</span></span></span></div>
+<div class="ltx_date ltx_role_creation">2020/03/26</div>
+
+<div class="ltx_abstract"><h6 class="ltx_title ltx_title_abstract">Abstract</h6>
+
+<p class="ltx_p">Arranging some magnets can intensify its magnetic field, as known as Halbach array.
+Magnets can be considered as a 3 dimensional array of magnetic dipoles.
+Optimizing these magnetic dipole directions, magnets can be more stronger.
+This article shows how to ditermine these directions, and how to magnetize ferromagnetic material with that directions.</p>
+
+</div>
+<div id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">1 </span>Background</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Magnets are used for conversion between force and electricity, like motor and generator.
+These devices can be more efficient, powerful, smaller, lighter, or cheaper with optimizing magnets.
+Arranging magnets into Halbach array is one of the methods to achieve that.
+On the other hand, magnet itself can be considered as a 3 dimensional array of magnetic dipoles.
+So scaling down magnets to magnetic dipoles, it can be said that optimizing these magnetic dipole directions can intensify the magnet.</p>
+</div>
+</div>
+<div id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">2 </span>Basic Situation</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">In this section, we consider a basic situation that maximize the magnetic field at point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p1.m1" class="ltx_Math" alttext="P_{f}" display="inline"><msub><mi>P</mi><mi>f</mi></msub></math>, toward vector <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p1.m2" class="ltx_Math" alttext="\overrightarrow{v_{f}}" display="inline"><mover accent="true"><msub><mi>v</mi><mi>f</mi></msub><mo>→</mo></mover></math>.</p>
+</div>
+<div id="S2.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection"><span class="ltx_tag ltx_tag_subsection">2.1 </span>Determining direction</h3>
+
+<div id="S2.SS1.SSS1" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection"><span class="ltx_tag ltx_tag_subsubsection">2.1.1 </span>Method</h4>
+
+<div id="S2.SS1.SSS1.p1" class="ltx_para">
+<p class="ltx_p">Magnetic flux density <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p1.m1" class="ltx_Math" alttext="\overrightarrow{dB}" display="inline"><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>B</mi></mrow><mo>→</mo></mover></math> at point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p1.m2" class="ltx_Math" alttext="P" display="inline"><mi>P</mi></math> from magnetic dipole moment <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p1.m3" class="ltx_Math" alttext="\overrightarrow{dM}" display="inline"><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>M</mi></mrow><mo>→</mo></mover></math> at point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p1.m4" class="ltx_Math" alttext="P_{m}" display="inline"><msub><mi>P</mi><mi>m</mi></msub></math> can be represented as below.</p>
+</div>
+<div id="S2.SS1.SSS1.p2" class="ltx_para">
+<table id="S4.EGx1" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S2.E1"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.E1.m1" class="ltx_Math" alttext="\displaystyle\overrightarrow{dB(P)}=k\nabla\frac{\overrightarrow{dM(P_{m})}%&#10;\cdot\overrightarrow{(P-P_{m})}}{\left|\overrightarrow{(P-P_{m})}\right|^{3}}" display="inline"><mrow><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover><mo>=</mo><mrow><mi>k</mi><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><mstyle displaystyle="true"><mfrac><mrow><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>M</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover><mo>⋅</mo><mover accent="true"><mrow><mo stretchy="false">(</mo><mrow><mi>P</mi><mo>-</mo><msub><mi>P</mi><mi>m</mi></msub></mrow><mo stretchy="false">)</mo></mrow><mo>→</mo></mover></mrow><msup><mrow><mo>|</mo><mover accent="true"><mrow><mo stretchy="false">(</mo><mrow><mi>P</mi><mo>-</mo><msub><mi>P</mi><mi>m</mi></msub></mrow><mo stretchy="false">)</mo></mrow><mo>→</mo></mover><mo>|</mo></mrow><mn>3</mn></msup></mfrac></mstyle></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S2.SS1.SSS1.p3" class="ltx_para">
+<p class="ltx_p">Here, <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p3.m1" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> is a constant number.</p>
+</div>
+<div id="S2.SS1.SSS1.p4" class="ltx_para">
+<p class="ltx_p">Therefore, to maximize the magnetic field at point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p4.m1" class="ltx_Math" alttext="P_{f}" display="inline"><msub><mi>P</mi><mi>f</mi></msub></math>, toward vector <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p4.m2" class="ltx_Math" alttext="\overrightarrow{v_{f}}" display="inline"><mover accent="true"><msub><mi>v</mi><mi>f</mi></msub><mo>→</mo></mover></math>,
+solving equation below for <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p4.m3" class="ltx_Math" alttext="\overrightarrow{dM}" display="inline"><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>M</mi></mrow><mo>→</mo></mover></math> gives the direction that the magnetic dipole at <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS1.p4.m4" class="ltx_Math" alttext="P_{m}" display="inline"><msub><mi>P</mi><mi>m</mi></msub></math> should take.</p>
+</div>
+<div id="S2.SS1.SSS1.p5" class="ltx_para">
+<table id="S4.EGx2" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S2.E2"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.E2.m1" class="ltx_Math" alttext="\displaystyle\overrightarrow{v_{f}}\cdot\overrightarrow{dB(P_{f})}=\left|%&#10;\overrightarrow{v_{f}}\right|\left|\overrightarrow{dB(P_{f})}\right|" display="inline"><mrow><mrow><mover accent="true"><msub><mi>v</mi><mi>f</mi></msub><mo>→</mo></mover><mo>⋅</mo><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>f</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover></mrow><mo>=</mo><mrow><mrow><mo>|</mo><mover accent="true"><msub><mi>v</mi><mi>f</mi></msub><mo>→</mo></mover><mo>|</mo></mrow><mo>⁢</mo><mrow><mo>|</mo><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>f</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover><mo>|</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(2)</span></td></tr></tbody>
+</table>
+</div>
+</div>
+<div id="S2.SS1.SSS2" class="ltx_subsubsection">
+<h4 class="ltx_title ltx_title_subsubsection"><span class="ltx_tag ltx_tag_subsubsection">2.1.2 </span>Results</h4>
+
+<div id="S2.SS1.SSS2.p1" class="ltx_para">
+<p class="ltx_p">For example here, we consider a cylinder shaped magnet which fills <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p1.m1" class="ltx_Math" alttext="-5&lt;z&lt;5" display="inline"><mrow><mrow><mo>-</mo><mn>5</mn></mrow><mo>&lt;</mo><mi>z</mi><mo>&lt;</mo><mn>5</mn></mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p1.m2" class="ltx_Math" alttext="\sqrt{x^{2}+y^{2}}&lt;10" display="inline"><mrow><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt><mo>&lt;</mo><mn>10</mn></mrow></math>.
+For <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p1.m3" class="ltx_Math" alttext="P_{f}=(0,0,10)" display="inline"><mrow><msub><mi>P</mi><mi>f</mi></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>10</mn><mo stretchy="false">)</mo></mrow></mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p1.m4" class="ltx_Math" alttext="\overrightarrow{v_{f}}=(0,0,-1)" display="inline"><mrow><mover accent="true"><msub><mi>v</mi><mi>f</mi></msub><mo>→</mo></mover><mo>=</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mrow><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></math>, magnetic flux density with or without optimization of magnetic dipole directions have been calculated.
+Results are calculated with Maxima, then drawn with Gnuplot.</p>
+</div>
+<div id="S2.SS1.SSS2.p2" class="ltx_para">
+<p class="ltx_p">Direction of the magnetic dipoles is shown as equation<a href="#S2.E3" title="(3) ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>.
+Intensity of the magnetic dipoles are constant number depending on saturation magnetic moment of the material.</p>
+</div>
+<div id="S2.SS1.SSS2.p3" class="ltx_para">
+<table id="S4.EGx3" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S2.E3"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.E3.m1" class="ltx_Math" alttext="\displaystyle\left(3P_{mx}(P_{mz}-10),3P_{my}(P_{mz}-10),(P_{mz}-10)^{2}-2P_{%&#10;mx}^{2}-2P_{my}^{2}\right)" display="inline"><mrow><mo>(</mo><mrow><mn>3</mn><mo>⁢</mo><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>x</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>,</mo><mrow><mn>3</mn><mo>⁢</mo><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>,</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msubsup><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>x</mi></mrow><mn>2</mn></msubsup></mrow><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msubsup><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>y</mi></mrow><mn>2</mn></msubsup></mrow></mrow><mo>)</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S2.SS1.SSS2.p4" class="ltx_para">
+<p class="ltx_p">Figure<a href="#S2.F1" title="Figure 1 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> shows the magnetic flux density with optimization of magnetic dipole directions.
+Figure<a href="#S2.F2" title="Figure 2 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a> shows the magnetic flux density with uniformed magnetic dipole directions, for comparison.</p>
+</div>
+<div id="S2.F1" class="ltx_figure"><object type="image/svg+xml" data="./resources/BM.svg" id="S2.F1.g1" class="ltx_graphics ltx_centering" alt=""></object>
+<div class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>Magnetic flux density with optimization of magnetic dipole directions</div>
+</div>
+<div id="S2.F2" class="ltx_figure"><object type="image/svg+xml" data="./resources/BM_straight.svg" id="S2.F2.g1" class="ltx_graphics ltx_centering" alt=""></object>
+<div class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 2: </span>Magnetic flux dinsity with uniformed magnetic dipole directions</div>
+</div>
+<div id="S2.SS1.SSS2.p5" class="ltx_para">
+<p class="ltx_p">In figure<a href="#S2.F1" title="Figure 1 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> and figure<a href="#S2.F2" title="Figure 2 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>,
+white arrows show directions of magnetic dipoles,
+black arrows show directions of magnetic flux density,
+and color show intensity of magnetic flux density.
+Magnetic flux density inside magnet are not calculated.</p>
+</div>
+<div id="S2.SS1.SSS2.p6" class="ltx_para">
+<p class="ltx_p">Difference between figure<a href="#S2.F1" title="Figure 1 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> and figure<a href="#S2.F2" title="Figure 2 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a> at the point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p6.m1" class="ltx_Math" alttext="(0,0,10)" display="inline"><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>10</mn><mo stretchy="false">)</mo></mrow></math>
+is not so dramatic as near the point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p6.m2" class="ltx_Math" alttext="(0,0,5)" display="inline"><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo stretchy="false">)</mo></mrow></math>,
+but intensity of magnetic flux density at the point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p6.m3" class="ltx_Math" alttext="(0,0,10)" display="inline"><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>10</mn><mo stretchy="false">)</mo></mrow></math> in figure<a href="#S2.F1" title="Figure 1 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> (<math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p6.m4" class="ltx_Math" alttext="&gt;3.2" display="inline"><mrow><mi/><mo>&gt;</mo><mn>3.2</mn></mrow></math>)
+is still larger than in figure<a href="#S2.F2" title="Figure 2 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a> (<math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS1.SSS2.p6.m5" class="ltx_Math" alttext="&lt;2.6" display="inline"><mrow><mi/><mo>&lt;</mo><mn>2.6</mn></mrow></math>).</p>
+</div>
+</div>
+</div>
+<div id="S2.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection"><span class="ltx_tag ltx_tag_subsection">2.2 </span>Magnetization</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">I show two methods here to magnetize the magnet in these direction,
+the voxel method and the single magnetic dipole method.</p>
+</div>
+<div id="S2.SS2.p2" class="ltx_para">
+<p class="ltx_p">The voxel method means simply to magnetize indivisual magnet voxels and then combine them.
+If you construct the magnet with a 3D printer,
+this method can be applied with attaching magnetizing coil to the nozzle of the printer.</p>
+</div>
+<div id="S2.SS2.p3" class="ltx_para">
+<p class="ltx_p">The single magnetic dipole method uses a magnetizing coil as a magnetic dipole.
+To magnetize in proper direction, magnetic flux density <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS2.p3.m1" class="ltx_Math" alttext="B_{c}" display="inline"><msub><mi>B</mi><mi>c</mi></msub></math> from the coil should fit the equation<a href="#S2.E4" title="(4) ‣ 2.2 Magnetization ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>.</p>
+</div>
+<div id="S2.SS2.p4" class="ltx_para">
+<table id="S4.EGx4" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S2.E4"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.E4.m1" class="ltx_Math" alttext="\displaystyle\overrightarrow{dM(P_{m})}\cdot\overrightarrow{B_{c}(P_{m})}=-%&#10;\left|\overrightarrow{dM(P_{m})}\right|\left|\overrightarrow{B_{c}(P_{m})}\right|" display="inline"><mrow><mrow><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>M</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover><mo>⋅</mo><mover accent="true"><mrow><msub><mi>B</mi><mi>c</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover></mrow><mo>=</mo><mrow><mo>-</mo><mrow><mrow><mo>|</mo><mover accent="true"><mrow><mi>d</mi><mo>⁢</mo><mi>M</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover><mo>|</mo></mrow><mo>⁢</mo><mrow><mo>|</mo><mover accent="true"><mrow><msub><mi>B</mi><mi>c</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo></mover><mo>|</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(4)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S2.SS2.p5" class="ltx_para">
+<p class="ltx_p">Putting the coil as a magnetic diole at the point <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS2.p5.m1" class="ltx_Math" alttext="P_{f}" display="inline"><msub><mi>P</mi><mi>f</mi></msub></math> to the direction <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.SS2.p5.m2" class="ltx_Math" alttext="-v_{f}" display="inline"><mrow><mo>-</mo><msub><mi>v</mi><mi>f</mi></msub></mrow></math>,
+the direction of the magnetic flux density from this coil is shown as equation<a href="#S2.E5" title="(5) ‣ 2.2 Magnetization ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>.</p>
+</div>
+<div id="S2.SS2.p6" class="ltx_para">
+<table id="S4.EGx5" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S2.E5"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.E5.m1" class="ltx_Math" alttext="\displaystyle-\left(3P_{mx}(P_{mz}-10),3P_{my}(P_{mz}-10),2(P_{mz}-10)^{2}-P_{%&#10;mx}^{2}-P_{my}^{2}\right)" display="inline"><mrow><mo>-</mo><mrow><mo>(</mo><mrow><mn>3</mn><mo>⁢</mo><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>x</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>,</mo><mrow><mn>3</mn><mo>⁢</mo><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>,</mo><mrow><mrow><mn>2</mn><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mrow><mo>-</mo><msubsup><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>x</mi></mrow><mn>2</mn></msubsup><mo>-</mo><msubsup><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>y</mi></mrow><mn>2</mn></msubsup></mrow><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(5)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S2.SS2.p7" class="ltx_para">
+<p class="ltx_p">Comparing with equation<a href="#S2.E3" title="(3) ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>, this is not perfect, but can be used as a approximation.</p>
+</div>
+</div>
+</div>
+<div id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">3 </span>Relation with Halbach Array</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">You can see the direction of the magnetic dipoles goes “<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p1.m1" class="ltx_Math" alttext="\downarrow\rightarrow\uparrow\leftarrow\downarrow" display="inline"><mrow><mo>↓</mo><mo>⁣</mo><mo>→</mo><mo>⁣</mo><mo>↑</mo><mo>⁣</mo><mo>←</mo><mo>⁣</mo><mo>↓</mo></mrow></math>”
+near the <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p1.m2" class="ltx_Math" alttext="P_{mz}=5" display="inline"><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>=</mo><mn>5</mn></mrow></math> on Figure<a href="#S2.F1" title="Figure 1 ‣ 2.1.2 Results ‣ 2.1 Determining direction ‣ 2 Basic Situation ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>.
+This is a part of the Halbach Array.
+Trimming this part to “<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p1.m3" class="ltx_Math" alttext="\rightarrow\uparrow\leftarrow" display="inline"><mrow><mo>→</mo><mo>⁣</mo><mo>↑</mo><mo>⁣</mo><mo>←</mo></mrow></math>”, connecting with opposing “<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p1.m4" class="ltx_Math" alttext="\leftarrow\downarrow\rightarrow" display="inline"><mrow><mo>←</mo><mo>⁣</mo><mo>↓</mo><mo>⁣</mo><mo>→</mo></mrow></math>”,
+then repeatedly copying and pasting, make the Halbach Array
+“<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p1.m5" class="ltx_Math" alttext="\rightarrow\uparrow\leftarrow\downarrow\rightarrow\uparrow\leftarrow\cdots" display="inline"><mrow><mo>→</mo><mo>↑</mo><mo>←</mo><mo>↓</mo><mo>→</mo><mo>↑</mo><mo>←</mo><mi mathvariant="normal">⋯</mi></mrow></math>”.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">The period of this Halbach Array <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m1" class="ltx_Math" alttext="L" display="inline"><mi>L</mi></math> is twice length of the “<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m2" class="ltx_Math" alttext="\rightarrow\uparrow\leftarrow" display="inline"><mrow><mo>→</mo><mo>⁣</mo><mo>↑</mo><mo>⁣</mo><mo>←</mo></mrow></math>” part.
+The <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m3" class="ltx_Math" alttext="P_{my}" display="inline"><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>y</mi></mrow></msub></math> of these “<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m4" class="ltx_Math" alttext="\rightarrow^{\prime\prime}and``\leftarrow" display="inline"><mrow><mi/><msup><mo>→</mo><mo>′′</mo></msup><mrow><mi>a</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi mathvariant="normal">`</mi><mo>⁢</mo><mi mathvariant="normal">`</mi></mrow><mo>←</mo><mi/></mrow></math>” can be get with solving equations<a href="#S3.E6" title="(6) ‣ 3 Relation with Halbach Array ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6</span></a>.</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<table id="S4.EGx6" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E6"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E6.m1" class="ltx_Math" alttext="\displaystyle\left\{\begin{array}[]{l}P_{mx}=0\\&#10;v_{f}\cdot dM(P_{m})=0\end{array}\right." display="inline"><mrow><mo>{</mo><mtable rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>x</mi></mrow></msub><mo>=</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><msub><mi>v</mi><mi>f</mi></msub><mo>⋅</mo><mi>d</mi></mrow><mo>⁢</mo><mi>M</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd></mtr></mtable><mi/></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(6)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p4" class="ltx_para">
+<p class="ltx_p">The equations<a href="#S3.E6" title="(6) ‣ 3 Relation with Halbach Array ‣ Intensifying Magnets with Optimization of Magnetic Dipole directions" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6</span></a> give <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p4.m1" class="ltx_Math" alttext="P_{my}=\pm\frac{P_{mz}-10}{\sqrt{2}}" display="inline"><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>y</mi></mrow></msub><mo>=</mo><mrow><mo>±</mo><mfrac><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><msqrt><mn>2</mn></msqrt></mfrac></mrow></mrow></math>, so <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p4.m2" class="ltx_Math" alttext="L=\sqrt{2}(P_{mz}-10)" display="inline"><mrow><mi>L</mi><mo>=</mo><mrow><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>⁢</mo><mi>z</mi></mrow></msub><mo>-</mo><mn>10</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.
+This implies that the optimum period of the Halbach Array can be decided with the distance from the point
+where we want to maximize the magnetic flux density.
+</p>
+</div>
+</div>
+<div id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">4 </span>Conclusion</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">Magnets can be intensified with optimization of its magnetic dipole 3D array.
+Example and magnetization methods for simple situation had be shown.
+Applying this to the Halbach Array, its period can be decided with the distance from the point
+where we want to maximize the magnetic flux density.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Thu Mar 26 22:10:02 2020 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"/></a></div></div>
+</div>
+
+</div>

@@ -1,0 +1,133 @@
+Zipped Web Page
+<script type="text/javascript" src="./resources/lib/zip.js"></script>
+<script type="text/javascript" src="./resources/lib/zip-fs.js"></script>
+<script type="text/javascript" src="./resources/lib/mime-types.js"></script>
+
+<script type="text/javascript">
+zip.workerScriptsPath = "resources/lib/";
+
+var zipfilesys;
+var zipready = false;
+var unzipQueue = new Array();
+function runUnzip(){
+  if (!zipready) return;
+  var entry;
+  while (entry = unzipQueue.shift()) {
+    (entry)();
+  }
+}
+
+function loadzip(url){
+  console.log("loading:"+url);
+  zipfilesys = new zip.fs.FS();
+  const importCallback = function(){
+    zipready = true;
+    console.log("loaded:"+url);
+    runUnzip();
+  };
+  const httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function(){
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        console.log("received:"+url);
+        zipfilesys.importBlob(httpRequest.response, importCallback);
+      }
+    }
+  };
+  httpRequest.responseType = "blob";
+  httpRequest.open('GET', url);
+  httpRequest.send();
+}
+
+function enqueueUnzip(item){
+  const path = item.getAttribute("data-zip-path");
+  const target = item.getAttribute("data-zip-target");
+  console.log("enqueue:" + path);
+  var closure;
+  if(target=="innerHTML") {
+    closure = ((item, path) => {return function(){
+      console.log("attaching:"+path);
+      const file = zipfilesys.find(path);
+      file.getText((data) => { item.innerHTML = data; });
+    };})(item, path);
+  }else{
+    closure = ((item, path, target) => {return function(){
+      console.log("attaching:"+path);
+      const file = zipfilesys.find(path);
+      const mimetype = zip.getMimeType(path);
+      file.getData64URI(mimetype, (data) => { item.setAttribute(target, data); });
+    };})(item, path, target);
+  }
+  unzipQueue.push(closure);
+}
+
+function enqueueUnzipCssVar(datalist){
+  const items = datalist.querySelectorAll("[value]");
+  items.forEach((item) => {
+    const cssVarId = item.textContent;
+    const path = item.getAttribute("value");
+    const closure = ((cssVarId, path, mimetype) => {return function(){
+      console.log("attaching(css):"+path);
+      const file = zipfilesys.find(path);
+      const mimetype = zip.getMimeType(path);
+      file.getData64URI(mimetype, function(data){
+        document.documentElement.style.setProperty(cssVarId, "url('"+data+"')");
+      });
+    }})(cssVarId, path);
+    unzipQueue.push(closure);
+  });
+}
+
+</script>
+
+<script type="text/javascript">
+window.addEventListener('load', (event) => {
+
+  const scriptsrcObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.target.nodeName.toLowerCase() == "script"){
+        const newelem = document.createElement("script");
+        newelem.src = mutation.target.src;
+        newelem.type = mutation.target.type;
+        mutation.target.parentNode.replaceChild(newelem, mutation.target);
+      }
+    });
+  });
+  scriptsrcObserver.observe(document, {atrributes: true, attributeFilter: ["src"], subtree: true});
+
+  const zipObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((item) => {
+        if (item.querySelectorAll) {
+          const targets = item.querySelectorAll("[data-zip-path]");
+          targets.forEach((target) => {
+            enqueueUnzip(target);
+          });
+          const cssvarsets = item.querySelectorAll("[data-zip-cssvars]");
+          targets.forEach((cssvarset) => {
+            enqueueUnzipCssVar(cssvarset);
+          });
+        }
+        if (item.hasAttribute){
+          if (item.hasAttribute("data-zip-path")) {
+            enqueueUnzip(item);
+          }else if (item.hasAttribute("data-zip-cssvars")){
+            enqueueUnzipCssVar(item);
+          }
+        }
+      });
+    });
+    runUnzip();
+  });
+  zipObserver.observe(document, {childList: true, subtree: true });
+
+  loadzip("./resources/bundle.zip");
+  const ziproot = document.querySelector("[data-zip-root]");
+  enqueueUnzip(ziproot);
+  runUnzip();
+});
+</script>
+
+<div id="section-main">
+  <div data-zip-root="true" data-zip-path="bundle/content.html" data-zip-target="innerHTML"></div>
+</div>

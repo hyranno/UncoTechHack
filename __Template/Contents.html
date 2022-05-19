@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Contents :UncoTechHack</title>
+
+<style type="text/css">
+body {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#header-links,
+#footer-links {
+  font-weight: bold;
+  border: 4px double rgb(210, 210, 210);
+  background-color: rgb(248, 248, 248);
+}
+#header-links a:any-link,
+#footer-links a:any-link {
+  margin: 6px;
+  text-decoration: none;
+  color: black;
+}
+#header-links a:hover,
+#footer-links a:hover {
+  background-color: white;
+}
+#header-links .logo:any-link,
+#footer-links .logo:any-link {
+  font-size: 250%;
+  font-family: serif;
+  color: rgb(100, 50, 50);
+}
+
+#tag-filters {
+  margin: 6px;
+}
+#tag-filters #tag-filter-title {
+  font-weight: bold;
+}
+#tag-filters .tag-filter-item {
+  cursor: pointer;
+  margin: 2px;
+  font-size: 80%;
+  border: 2px solid rgb(210, 255, 210);
+  border-radius: 8px;
+  background-color: rgb(210, 255, 210);
+}
+#tag-filters .tag-filter-item.active {
+  background-color: rgb(180, 180, 180);
+}
+
+#articles {
+  margin: 12px;
+  flex: 1;
+}
+#articles .article-item {
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin: 4px;
+  padding: 2px;
+  border: 1px solid rgb(210, 210, 210);
+}
+#articles .article-item:hover {
+  background-color: rgb(245, 245, 255);
+}
+#articles .article-item.tag-filtered {
+  display: none;
+}
+#articles .article-item .article-title {
+  font-weight: bold;
+}
+#articles .article-item .last-update {
+  font-size: 80%;
+}
+#articles .article-item .related-tag-item {
+  margin: 2px;
+  font-size: 80%;
+  border: 2px solid rgb(210, 255, 210);
+  border-radius: 8px;
+  background-color: rgb(210, 255, 210);
+}
+
+</style>
+
+<script type="text/javascript">
+
+function toggle_tag_filter(){
+  this.classList.toggle("active");
+  apply_tag_filter();
+}
+
+function apply_tag_filter(){
+  var targets = document.querySelectorAll(":scope #articles .article-item.tag-filtered");
+  for (var i = 0; i < targets.length; i++) {
+    targets[i].classList.remove("tag-filtered");
+  }
+  targets = document.querySelectorAll(":scope #tag-filters .tag-filter-item.active");
+  var xpath_result;
+  for (var i = 0; i < targets.length; i++) {
+    var tag_string = targets[i].textContent;
+    var xpath = '//*[@class="related-tag-item"]'+
+      '[normalize-space(text())=normalize-space("'+tag_string+'")]'+
+      '/ancestor::node()[@class="related-tags"]'+
+      '/ancestor::node()[@class="article-item"]';
+    xpath_result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, xpath_result);
+    for(var j=0; j<xpath_result.snapshotLength; j++){
+      var target_article = xpath_result.snapshotItem(j);
+      target_article.classList.add("tag-filtered");
+    }
+  }
+}
+
+window.onload = function(){
+  var targets = document.querySelectorAll(":scope #tag-filters .tag-filter-item");
+  for (var i = 0; i < targets.length; i++) {
+    targets[i].addEventListener("click", toggle_tag_filter);
+  }
+};
+
+</script>
+
+</head>
+
+<body>
+
+<!--replace header_links-->
+
+<!--replace tag_filters-->
+
+<!--replace article_links-->
+
+<!--replace footer_links-->
+
+</body>
+</html>

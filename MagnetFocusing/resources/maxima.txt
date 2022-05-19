@@ -1,0 +1,147 @@
+/* batch(filepath) */
+
+kill(all)$
+
+load(vect)$
+
+flatten_mat(m) := flatten(args(m))$
+cros(u,v) := block(
+  [uf, vf],
+  uf : flatten_mat(u),
+  vf : flatten_mat(v),
+  [uf[2]*vf[3]-uf[3]*vf[2], uf[3]*vf[1]-uf[1]*vf[3], uf[1]*vf[2]-uf[2]*vf[1]]
+  )$
+norm(v) := sqrt(v.v)$
+/* integrations
+integrate(f, t, tmin, tmax)
+ldefint(f, t, tmin, tmax)
+quad_qags(f, t, tmin, tmax, 'epsrel=1, 'limit=20000)[1]
+romberg(f, t, tmin, tmax)
+ */
+tri1(v) := cos(v)^2 + sin(v)^2$
+
+
+r1 : 10$
+z1len : 10$
+isInMagnet(p) := (
+  (p[3] <= z1len/2) and (p[3] >= -z1len/2) and (norm([p[1],p[2]]) <= r1)
+)$
+
+normM : 1$
+focusp : [0,0,z1len]$
+focusd : [0,0,-1]$
+M : ''block(
+  [m, pm, p, r, dBf, fc, fd, fl],
+  m : [m[1], m[2], m[3]],
+  pm : [pm[1], pm[2], pm[3]],
+  p : [p[1], p[2], p[3]],
+  r : p-pm,
+  block(
+    [dBf],
+    dBf : ''block(
+      [fb, dBd],
+      fb : m.r/(norm(r)^3),
+      dBd : [diff(fb,p[1]), diff(fb,p[2]), diff(fb,p[3])],
+      ev(dBd, p[1]=focusp[1], p[2]=focusp[2], p[3]=focusp[3])
+    ),
+    fc : cros(focusd, dBf),
+    fd : (focusd.dBf)^2 = (focusd.focusd)*(dBf.dBf)
+  ),
+  fl : m.m = normM^2,
+  map(rhs, (solve([fc[1]^2=0, fc[2]^2=0, fc[3]^2=0, fd, fl], [m[1], m[2], m[3]]))[1] )
+)$
+
+
+km : 1$
+dBform : ''block(
+  [p, pm, r, f],
+  p : [p[1], p[2], p[3]],
+  pm : [rm*cos(am), rm*sin(am), zm],
+  r : p-pm,
+  f : trigsimp(ev( km*(M.r)/(norm(r)^3) )),
+  [diff(f,p[1]), diff(f,p[2]), diff(f,p[3])]
+)$
+dB(p) := block(
+  map(lambda([v], ev(v)), dBform)
+)$
+
+(zmgrid : 100, zmmin : -z1len/2, zmstep : z1len/zmgrid)$
+(rmgrid : 20, rmmin : 0, rmstep : r1/rmgrid)$
+(amgrid : 20, ammin : 0, amstep : 2*%pi/amgrid)$
+zmi(i) := ev(zmmin + i*zmstep, numer)$
+rmi(i) := ev(rmmin + i*rmstep, numer)$
+ami(i) := ev(ammin + i*amstep, numer)$
+dvm : ev(zmstep*rmstep*amstep, numer)$
+mpts : create_list(
+  [zmi(i), rmi(j), ami(k)],
+  i, 0, zmgrid,
+  j, 0, rmgrid,
+  k, 0, amgrid-1
+)$
+intgM(f) := lsum(
+  ev(f*dvm, numer, zm=pm[1], rm=pm[2], am=pm[3]),
+  pm, mpts
+)$
+B(p) := map(intgM, rm*dB(p))$
+
+
+
+
+gridnum : 50$
+hmin : -2*r1$
+hmax : 2*r1$
+zmin : -2*z1len$
+zmax : 2*z1len$
+hi(i) := hmin + i*(hmax-hmin)/gridnum, number$
+zi(i) := zmin + i*(zmax-zmin)/gridnum, number$
+pts : create_list([0, hi(i), zi(j)], i, 0, gridnum, j, 0, gridnum)$
+
+filedisk : "C:"$
+filedir : pathname_directory(load_pathname)$
+
+filename : concat(filedisk, filedir, "BMabs.dat")$
+mfilename : concat(filedisk, filedir, "M.dat")$
+bfilename : concat(filedisk, filedir, "B.dat")$
+
+writeM(p, mostream, ostream) := block(
+  [Mv],
+  Mv : ev(M, pm=[p[1],p[2],p[3]]),
+  write_data(map(lambda([v], ev(v, numer)), flatten_mat([p, Mv])), mostream),
+  write_data(map(lambda([v], ev(v, numer)), flatten_mat([p, norm(Mv)])), ostream)
+)$
+writeB(p, bostream, ostream) := block(
+  [Bv],
+  Bv : B(p),
+  write_data(map(lambda([v], ev(v, numer)), flatten_mat([p, Bv])), bostream),
+  write_data(map(lambda([v], ev(v, numer)), flatten_mat([p, norm(Bv)])), ostream)
+)$
+
+itr : 1$
+isEndOfLine(i) := is(0 = mod(i, gridnum+1))$
+prevp : pts[1]$
+isStartOfMagnet(p) := is((isInMagnet(p)) and (not isInMagnet(prevp)))$
+isEndOfMagnet(p) := is((isInMagnet(prevp)) and (not isInMagnet(p)))$
+
+lispStr : "(progn
+  (msetq $ostream (open $filename :direction :output :if-exists :supersede))
+  (msetq $mostream (open $mfilename :direction :output :if-exists :supersede))
+  (msetq $bostream (open $bfilename :direction :output :if-exists :supersede))
+  (msetq $ptst (cdr $pts))
+  (loop while $ptst do (progn
+    (msetq $p (car $ptst))
+    (msetq $ptst (cdr $ptst))
+    (if (mfuncall '|$isInMagnet| $p)
+      (mfuncall '|$writeM| $p $mostream $ostream)
+      (mfuncall '|$writeB| $p $bostream $ostream)
+    )
+    (if (mfuncall '|$isStartOfMagnet| $p) (write-line \"\" $bostream) 'false)
+    (if (mfuncall '|$isEndOfMagnet| $p) (write-line \"\" $mostream) 'false)
+    (if (mfuncall '|$isEndOfLine| $itr) (progn (write-line \"\" $ostream) (write-line \"\" $bostream)) 'false)
+    (msetq $itr (+ $itr 1))
+    (msetq $prevp $p)
+  ))
+  (close $ostream)
+  (close $mostream)
+  (close $bostream)
+)"$
+:lisp (eval (read-from-string |$lispStr|))

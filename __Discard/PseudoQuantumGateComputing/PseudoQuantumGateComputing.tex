@@ -1,0 +1,304 @@
+\documentclass[dvipdfmx]{article}
+
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{comment}
+
+\title{Array Representation of Entanglement for Pseudo-Quantum Gate Computing on Conventional Digital Circuits}
+\author{Hirano Takeshi \thanks{hyranno4pub@gmail.com http://uncotechhack.net}}
+\date{2020/06/24}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Entanglement is important on quantum gate based computer.
+Simple implementation of simulated entanglement on conventional digital circuits requires
+ spatial complexity $O(2^{N})$ where $N$ is number of qubits.
+In this article, array representation of entanglement which requires
+ spatial complexity $O(N^{2})$ is proposed for simulated quantum gate on conventional digital circuits.
+Simulation shows proposed method can solve the problem which Deutsch-Jozsa algorithm solves.
+\end{abstract}
+
+
+\section{Background}
+Entanglement is important on quantum gate based computer.
+Entanglement is caused by CNOT gate.
+XOR (namely CNOT) gate shrinks two input qubits to one output qubit.
+This output qubit has dependency to input qubits.
+Representation of qubit which consists of two complex number is not sufficient to represent this dependency.
+But representation based on divided cases which have complexity $O(2^{N})$ seems to be too large.
+If this output dependent to N independent qubits, representation of the output
+ should have information $O(N)$ not to lose any information with XOR.
+So I propose the representation of qubit which consists of array with length of N.
+
+
+\section{Proposed Representation}
+Unitary gates and CNOT gates can make any other quantum gates.
+Investigating how unitary gates and CNOT gates affect to independent bits will help constructing the representation of its output.
+
+Here we use independent qubits $q_{1}, q_{2}$, each of them consists of two complex number.
+$U$ represents $2 \times 2$ unitary matrix.
+$NOT$ and $I$ are special case of $U$.
+
+\begin{eqnarray}
+q_{1} = \left( \begin{array}{c} q_{1(0)} \\ q_{1(1)} \end{array} \right) \\
+q_{2} = \left( \begin{array}{c} q_{2(0)} \\ q_{2(1)} \end{array} \right) \\
+NOT = \left( \begin{array}{cc} 0 & 1 \\ 1 & 0 \end{array} \right) \\
+I = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right)
+\end{eqnarray}
+
+$|q_{k(0)}|^{2}$ is the probability of that $k$th qubit takes value $0$, as conventional representation of qubit.
+
+When CNOT gate takes $q_{1}$ and $q_{2}$ as inputs, it outputs $q_{1}$ and $XOR(q_{1},q_{2})$.
+Combination of unitary gate and XOR gate behave like below.
+
+\begin{eqnarray}
+XOR(q_{1}, q_{2}) =&  (q_{1(0)}|q_{1}=0>)(q_{2}) + (q_{1(1)}|q_{1}=1>)(NOT.q_{2}) \\
+XOR(q_{1}, U.q_{2}) =& (q_{1(0)}|q_{1}=0>)(U.q_{2}) + (q_{1(1)}|q_{1}=1>)(NOT.U q_{2}) \label{eq:xoru} \\
+U.XOR(q_{1}, q_{2}) =& (q_{1(0)}|q_{1}=0>)(U.q_{2}) + (q_{1(1)}|q_{1}=1>)(U.NOT.q_{2}) \label{eq:uxor}
+\end{eqnarray}
+
+From these behavior, two $2 \times 2$ matrices for one independent qubit seems to be required.
+Then output qubit $q_{o}$ which has dependency on independent $N$ qubits can be array like as Eq.\ref{eq:Marray}.
+
+\begin{eqnarray}
+	q_{o} = \{M_{1[0]}, M_{1[1]}}, {M_{2[0]}, M_{2[1]}}, ... {M_{N[0]}, M_{N[1]}\}
+	\label{eq:Marray}
+\end{eqnarray}
+
+
+\subsection{Marginal probability}
+To perform a measurement, probability of result ${0,1}$ have to be calculated on output qubit $q_{o}$.
+From equations above, marginal probability $P_{m}$ of result on $q_{o}$ should be as Eq.\ref{eq:marginalize}.
+
+\begin{eqnarray}
+f_{p}(M, q) =& \left(\begin{array}{c}
+    \left| M_{(11)}q_{(0)} \right| ^{2}
+    +\left| M_{(12)}q_{(1)} \right| ^{2} \\
+    \left| M_{(21)}q_{(0)} \right| ^{2}
+    +\left| M_{(22)}q_{(1)} \right| ^{2}
+\end{array}\right) \\
+f_{mp}(k) =& \left\{\begin{array}{ll}
+  f_p(M_{k[0]}, q_{k}) & \mathrm{if} (k=1) \\
+  f_{mp}(k-1)_{0}.f_{p}(M_{k[0]}, q_{k}) +  f_{mp}(k-1)_{1}.f_{p}(M_{k[1]}, q_{k}) & \mathrm{otherwise}
+\end{array}\right. \\
+P_{m}(q_{o}) =& f_{mp}(N)
+\label{eq:marginalize}
+\end{eqnarray}
+
+With this representation, $q_{o}$ may have $M_{k[0]}$ and $M_{k[1]}$ even if $q_o$ have no dependency on $q_{k}$,
+ considering $C_{0}, C_{1}$ below.
+
+\begin{eqnarray}
+C_{0} =  \left( \begin{array}{cc} 1 & 1 \\ 0 & 0 \end{array} \right) \\
+C_{1} =  \left( \begin{array}{cc} 0 & 0 \\ 1 & 1 \end{array} \right) \\
+\left( \begin{array}{c} 1 \\ 0 \end{array} \right) = C_{0}.q_{k} \\
+\left( \begin{array}{c} 0 \\ 1 \end{array} \right) = C_{1}.q_{k}
+\end{eqnarray}
+
+If $q_{o}$ has no dependency on $q_{k}$, then $M_{k[0]}=C_{0}$ and $M_{k[1]}=C_{1}$.
+So if $q_{o} = q_{j}$, $q_{o}$ can be represented as array like below.
+
+\begin{eqnarray}
+q_{o} =& \{M_{1[0]}, M_{1[1]}}, {M_{2[0]}, M_{2[1]}}, ... {M_{N[0]}, M_{N[1]}\} \\
+M_{k[0]} =& \left\{ \begin{array}{ll}
+  I & \mathrm{if} (k=j) \\
+  C_{0} & \mathrm{otherwise}
+\end{array} \right. \\
+M_{k[1]} =& \left\{ \begin{array}{ll}
+  I & \mathrm{if} (k=j) \\
+  C_{1} & \mathrm{otherwise}
+\end{array} \right.
+\end{eqnarray}
+
+While $P_{m}$ is marginal probability of single output,
+ you need to calculate conditional probability when you measure multiple output.
+To calculate conditional probability, you will need $AND(q_{o1}, q_{o2})$.
+
+
+\subsection{Unitary gate}
+Assuming from Eq.\ref{eq:uxor}, unitary gate behave like below.
+
+\begin{eqnarray}
+(M_{k[0]}, M_{k[1]}) \to \left\{ \begin{array}{ll}
+  (U.M_{k[0]}, U.M_{k[1]}) & \mathrm{if} (k=m) \\
+  (M_{k[0]}, M_{k[1]}) & \mathrm{otherwise}
+\end{array} \right. \nonumber \\
+\;  \mathrm{where}\: m = \mathrm{max}(l \: | \: \mathrm{det}(M_{l[0]}) \neq 0)
+\label{eq:ugate}
+\end{eqnarray}
+
+
+\subsection{CNOT gate}
+I had little more investigation on XOR shown as Eq.\ref{eq:xoruu} and Eq.\ref{eq:xorxor}.
+$E_{k(v)}$ and $f_{XOR}$ has been defined for shortening text as Eq.\ref{eq:ekv} and Eq.\ref{eq:fxor}.
+
+\begin{eqnarray}
+E_{k(v)} = (q_{k(v)}|q_{k}=v>)
+\label{eq:ekv}
+\end{eqnarray}
+
+\begin{eqnarray}
+XOR(M_{a}.q_{1}, M_{b}.q_{1}) \nonumber \\
+=& \left((M_{a}.q_{1})_{(0)}|M_{a}.q_{1}=0>\right).(M_{b}.q_{1})
+ + \left((M_{a}.q_{1})_{(1)}|M_{a}.q_{1}=1>\right).(NOT.M_{b}.q_{1}) \nonumber \\
+=& \left( \begin{array}{c}
+      M_{a(11)}.M_{b(11)}E_{1(0)} + M_{a(12)}.M_{b(12)}E_{1(1)} \\
+      M_{a(11)}.M_{b(21)}E_{1(0)} + M_{a(12)}.M_{b(22)}E_{1(1)}
+    \end{array} \right) \nonumber \\
+    &+ \left( \begin{array}{c}
+      M_{a(21)}.M_{b(21)}E_{1(0)} + M_{a(22)}.M_{b(22)}E_{1(1)}\\
+      M_{a(21)}.M_{b(11)}E_{1(0)} + M_{a(22)}.M_{b(12)}E_{1(1)}
+    \end{array} \right) \nonumber \\
+=& \left( \begin{array}{cc}
+      (M_{a(11)}.M_{b(11)})+(M_{a(21)}.M_{b(21)}) & (M_{a(12)}.M_{b(12)})+(M_{a(22)}.M_{b(22)})\\
+      (M_{a(11)}.M_{b(21)})+(M_{a(21)}.M_{b(11)}) & (M_{a(12)}.M_{b(22)})+(M_{a(22)}.M_{b(12)})
+    \end{array} \right).(q_{1})
+\label{eq:xoruu}
+\end{eqnarray}
+
+\begin{eqnarray}
+ f_{XOR}(M_{a}, M_{b}) = \left( \begin{array}{cc}
+      (M_{a(11)}.M_{b(11)})+(M_{a(21)}.M_{b(21)}) & (M_{a(12)}.M_{b(12)})+(M_{a(22)}.M_{b(22)})\\
+      (M_{a(11)}.M_{b(21)})+(M_{a(21)}.M_{b(11)}) & (M_{a(12)}.M_{b(22)})+(M_{a(22)}.M_{b(12)})
+    \end{array} \right)
+\label{eq:fxor}
+\end{eqnarray}
+
+\begin{eqnarray}
+XOR(M_{a}.XOR(q_{1}, q_{2}), M_{b}.q_{2}) \hspace{-100pt} \nonumber \\
+=& XOR\left(
+ M_{a}.\left( \begin{array}{c}
+  E_{1(0)}E_{2(0)}+E_{1(1)}E_{2(1)} \\
+  E_{1(0)}E_{2(1)}+E_{1(1)}E_{2(0)}
+ \end{array} \right),
+ M_{b}.\left( \begin{array}{c}
+  E_{2(0)} \\
+  E_{2(1)}
+ \end{array} \right)
+\right) \nonumber \\
+\begin{comment}
+=& XOR\left(
+ \left( \begin{array}{c}
+  M_{1(11)}.(E_{1(0)}E_{2(1)}+E_{1(1)}E_{2(0)})
+  +M_{1(12)}.(E_{1(0)}E_{2(0)}+E_{1(1)}E_{2(1)}) \\
+  M_{1(21)}.(E_{1(0)}E_{2(1)}+E_{1(1)}E_{2(0)})
+  +M_{1(22)}.(E_{1(0)}E_{2(0)}+E_{1(1)}E_{2(1)})
+ \end{array} \right),
+ \left( \begin{array}{c}
+  M_{2(11)}.E_{2(0)} + M_{2(12)}.E_{2(1)} \\
+  M_{2(21)}.E_{2(0)} + M_{2(22)}.E_{2(1)}
+ \end{array} \right)
+ \right) \nonumber \\
+\end{comment}
+=&
+ \left(
+  M_{1(11)}.(E_{1(0)}E_{2(1)}+E_{1(1)}E_{2(0)})
+  +M_{1(12)}.(E_{1(0)}E_{2(0)}+E_{1(1)}E_{2(1)})
+ \right)
+ .\left( \begin{array}{c}
+  M_{2(11)}.E_{2(0)} + M_{2(12)}.E_{2(1)} \\
+  M_{2(21)}.E_{2(0)} + M_{2(22)}.E_{2(1)}
+ \end{array} \right) \nonumber \\&
+ +\left(
+  M_{1(21)}.(E_{1(0)}E_{2(1)}+E_{1(1)}E_{2(0)})
+  +M_{1(22)}.(E_{1(0)}E_{2(0)}+E_{1(1)}E_{2(1)})
+ \right)
+ .\left( \begin{array}{c}
+  M_{2(21)}.E_{2(0)} + M_{2(22)}.E_{2(1)} \\
+  M_{2(11)}.E_{2(0)} + M_{2(12)}.E_{2(1)}
+ \end{array} \right) \nonumber \\
+=&
+ \left( \begin{array}{c}
+  M_{1(11)}.(M_{2(11)}.E_{1(0)}E_{2(0)}+M_{2(12)}.E_{1(1)}E_{2(1)})
+  +M_{1(12)}.(M_{2(12)}.E_{1(0)}E_{2(1)}+M_{2(11)}.E_{1(1)}E_{2(0)})
+  \\
+  M_{1(11)}.(M_{2(21)}.E_{1(0)}E_{2(0)}+M_{2(22)}.E_{1(1)}E_{2(1)})
+  +M_{1(12)}.(M_{2(22)}.E_{1(0)}E_{2(1)}+M_{2(21)}.E_{1(1)}E_{2(0)})
+ \end{array} \right) \nonumber \\
+ &+\left( \begin{array}{c}
+  M_{1(21)}.(M_{2(21)}.E_{1(0)}E_{2(0)}+M_{2(22)}.E_{1(1)}E_{2(1)})
+  +M_{1(22)}.(M_{2(22)}.E_{1(0)}E_{2(1)}+M_{2(21)}.E_{1(1)}E_{2(0)})
+  \\
+  M_{1(21)}.(M_{2(11)}.E_{1(0)}E_{2(0)}+M_{2(12)}.E_{1(1)}E_{2(1)})
+  +M_{1(22)}.(M_{2(12)}.E_{1(0)}E_{2(1)}+M_{2(11)}.E_{1(1)}E_{2(0)})
+ \end{array} \right) \nonumber \\
+=&
+ E_{1(0)}
+  .\left( \begin{array}{c}
+   (M_{1(11)}.M_{2(11)}+M_{1(21)}.M_{2(21)})E_{2(0)} + (M_{1(12)}.M_{2(12)}+M_{1(22)}.M_{2(22)})E_{2(1)}\\
+   (M_{1(11)}.M_{2(21)}+M_{1(21)}.M_{2(11)})E_{2(0)} + (M_{1(12)}.M_{2(22)}+M_{1(22)}.M_{2(12)})E_{2(1)}
+  \end{array} \right) \nonumber \\
+ &+E_{1(1)}
+  .\left( \begin{array}{c}
+   (M_{1(12)}.M_{2(11)}+M_{1(22)}.M_{2(21)})E_{2(0)} + (M_{1(11)}.M_{2(12)}+M_{1(21)}.M_{2(22)})E_{2(1)}\\
+   (M_{1(12)}.M_{2(21)}+M_{1(22)}.M_{2(11)})E_{2(0)} + (M_{1(11)}.M_{2(22)}+M_{1(21)}.M_{2(12)})E_{2(1)}
+  \end{array} \right) \nonumber \\
+=&
+ E_{1(0)}
+  .\left( \begin{array}{cc}
+   (M_{1(11)}.M_{2(11)}+M_{1(21)}.M_{2(21)}) & (M_{1(12)}.M_{2(12)}+M_{1(22)}.M_{2(22)})\\
+   (M_{1(11)}.M_{2(21)}+M_{1(21)}.M_{2(11)}) & (M_{1(12)}.M_{2(22)}+M_{1(22)}.M_{2(12)})
+  \end{array} \right).(q_{2}) \nonumber \\
+ &+E_{1(1)}
+  .\left( \begin{array}{cc}
+   (M_{1(12)}.M_{2(11)}+M_{1(22)}.M_{2(21)}) & (M_{1(11)}.M_{2(12)}+M_{1(21)}.M_{2(22)})\\
+   (M_{1(12)}.M_{2(21)}+M_{1(22)}.M_{2(11)}) & (M_{1(11)}.M_{2(22)}+M_{1(21)}.M_{2(12)})
+  \end{array} \right).(q_{2}) \nonumber \\
+=& E_{1(0)}.f_{XOR}(M_{a}, M_{b}).(q_{2})
+    +E_{1(1)}.f_{XOR}(M_{a}.NOT, M_{b}).(q_{2})
+\label{eq:xorxor}
+\end{eqnarray}
+
+Assuming from Eq.\ref{eq:xorxor}, CNOT gate behave like below.
+
+\begin{eqnarray}
+\left( (M_{ak[0]}, M_{ak[1]}), (M_{bk[0]}, M_{bk[1]}) \right)
+\to
+\left( f_{XOR}(M_{ak[0]}, M_{bk[0]}), f_{XOR}(M_{ak[1]}, M_{bk[1]}) \right)
+\label{eq:cnotgate}
+\end{eqnarray}
+
+
+
+\section{Simulation}
+With Eq.\ref{eq:marginalize}, Eq.\ref{eq:ugate} and Eq.\ref{eq:cnotgate}, quantum gate computing should be simulated.
+But I have not got correct mathematical proof for this representation yet.
+So I wrote a simulation to show it work fine.
+Simulation is written in SystemVerilog and run by ModelSim.
+SystemVerilog has been chosen to ensure this representation can be implemented as physical gates, not only software.
+
+\subsection{Problem}
+This simulation solves the problem which Deutsch-Jozsa algorithm solves.
+In this problem, we are given a black box quantum computer as an oracle,
+ which implements a function $f:\{0,1\}^{N} \to \{0,1\}$.
+This function is either ``constant'' or ``balanced''.
+If it is constant, the function returns always $0$, or always $1$.
+If it is balanced, the function returns 0 for half of the input domain and 1 for the others.
+The task is to determine if the $f$ is constant or balanced by using the oracle.
+In this simulation, also the oracle uses proposed array representation.
+
+\subsection{Implementation}
+You can take a look and run the attached SystemVerilog code for detail.
+Unlike real-quantum computer, we can get marginal probability of the output.
+So what we have to do is to initialize to $0$ and apply Hadamard gate to each input qubit,
+ then connect all to the oracle and calculate the marginal probability of the output.
+If the probability is $\{1, 0\}$, the function is constant returning $0$.
+If the probability is $\{0, 1\}$, the function is constant returning $1$.
+If the probability is $\{0.5, 0.5\}$, the function is balanced.
+
+\subsection{Result}
+Simulation works fine for number of qubits $4$, solving the problem correctly.
+
+
+\section{Conclusion}
+Array representation of entanglement is proposed.
+With this proposed method,
+ we can at least solve the Deutsch-Jozsa problem on conventional circuits
+ in spatial complexity $O(N^{2})$ instead of $O(2^{N})$,
+ where $N$ is number of input qubits.
+
+
+\end{document}

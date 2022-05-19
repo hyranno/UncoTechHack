@@ -1,0 +1,21 @@
+<updates>
+
+  <div class="update-log-item">
+    <span class="date">
+      2019-09-01
+    </span>
+    <span class="description">
+      fixed typo
+    </span>
+  </div>
+
+  <div class="update-log-item">
+    <span class="date">
+      2019-08-28
+    </span>
+    <span class="description">
+      first version
+    </span>
+  </div>
+
+</updates>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title><!--replace title--> :UncoTechHack</title>
+
+<style type="text/css">
+body {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#header-links,
+#footer-links {
+  font-weight: bold;
+  border: 4px double rgb(210, 210, 210);
+  background-color: rgb(248, 248, 248);
+}
+#header-links a:any-link,
+#footer-links a:any-link {
+  margin: 6px;
+  text-decoration: none;
+  color: black;
+}
+#header-links a:hover,
+#footer-links a:hover {
+  background-color: white;
+}
+#header-links .logo:any-link,
+#footer-links .logo:any-link {
+  font-size: 250%;
+  font-family: serif;
+  color: rgb(100, 50, 50);
+}
+
+#section-meta {
+  margin: 12px;
+}
+
+#article-title {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#update-logs,
+.related-tags {
+  margin: 4px;
+}
+
+#update-logs {
+  background-color: rgb(244, 244, 244);
+  font-size: 90%;
+}
+
+.related-tags .related-tag-item{
+  margin: 2px;
+  font-size: 80%;
+  border: 2px solid rgb(210, 255, 210);
+  border-radius: 8px;
+  background-color: rgb(210, 255, 210);
+}
+
+#section-main {
+  flex: 1;
+}
+
+#section-main,
+#section-lisence,
+#section-donation,
+#section-contact {
+  border: 1px solid rgb(200, 200, 200);
+  margin: 4px;
+  padding: 4px;
+}
+#section-lisence .collapsable-title,
+#section-donation .collapsable-title,
+#section-contact .collapsable-title{
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.collapsable > .collapsable-title {
+  cursor: pointer;
+}
+.collapsable > .collapsable-title::before {
+  content: "-";
+}
+.collapsable.collapsed > .collapsable-title::before {
+  content: "+";
+}
+.collapsable.collapsed > .collapsable-body {
+  display: none;
+}
+
+code.multiline {
+  display: block;
+  white-space: pre-wrap;
+}
+
+code.add {
+  background-image: var(--green_svg);
+}
+code.delete {
+  background-image: var(--red_svg);
+}
+
+figure {
+  margin: auto;
+  text-align: center;
+  border: thin #ccc solid;
+}
+figcaption {
+  background-color: #DDD;
+  padding: 3px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function toggle_collapse(){
+  this.parentNode.classList.toggle("collapsed");
+}
+
+function obfuscate(target){
+  return target.split("").map(function(char){
+    return char.charCodeAt(0) + 273*(Math.floor(Math.random()*(5-1))+1);
+  });
+}
+function deobfuscate(target){
+  return target.map(function(e){
+    return String.fromCharCode(e%273);
+  }).join("");
+}
+
+function contact(buffer){
+  var original = buffer.innerHTML;
+  buffer.innerHTML = deobfuscate([650, 667, 1206, 916, 383, 656, 930, 871, 1204, 663, 371, 1156, 1195, 382, 643, 924, 381, 1138, 372, 930, 655]);
+  document.getSelection().selectAllChildren(buffer);
+  document.execCommand("copy");
+  buffer.innerHTML = original;
+}
+
+window.onload = function(){
+  var targets = document.querySelectorAll(":scope .collapsable > .collapsable-title");
+  for (var i = 0; i < targets.length; i++) {
+    targets[i].addEventListener("click", toggle_collapse);
+  }
+};
+
+</script>
+
+</head>
+
+<body>
+
+
+<!--replace header_links-->
+
+<div id="section-meta">
+
+  <div id="article-title">
+    <!--replace title-->
+  </div>
+
+  <!--replace update_logs-->
+
+  <!--replace related_tags-->
+
+</div>
+
+<!--replace section_main-->
+
+<div id="section-lisence" class="collapsable collapsed">
+  <div class="collapsable-title">
+    Lisence
+  </div>
+  <div class="collapsable-body">
+    <!--replace license-->
+  </div>
+</div>
+
+<div id="section-donation" class="collapsable collapsed">
+  <div class="collapsable-title">
+    Donation
+  </div>
+  <div class="collapsable-body">
+    Donations help me to prepare other ideas.
+    You can donate via <a href="https://paypal.me/hyranno">Paypal</a>.
+    Thank you.
+  </div>
+</div>
+
+<div id="section-contact" class="collapsable collapsed">
+  <div class="collapsable-title">
+    Contact
+  </div>
+  <div class="collapsable-body">
+    Contact me in simple English or Japanese.
+    Simple English will be better than wrong Japanese.
+    Click <a href="javascript:void(0)" onclick="contact(this)">here</a> to copy the email address to clipboard.
+    I am not sure if I can react to all messages.
+  </div>
+</div>
+
+<!--replace footer_links-->
+
+</body>
+</html>

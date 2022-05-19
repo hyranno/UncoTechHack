@@ -1,0 +1,21 @@
+code.multiline {
+  display: block;
+  white-space: pre-wrap;
+}
+
+code.add {
+  background-image: var(--green_svg);
+}
+code.delete {
+  background-image: var(--red_svg);
+}
+
+figure {
+  margin: auto;
+  text-align: center;
+  border: thin #ccc solid;
+}
+figcaption {
+  background-color: #DDD;
+  padding: 3px;
+}

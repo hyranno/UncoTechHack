@@ -1,0 +1,356 @@
+Low Power Coding with Balanced Ternary for Communications using spread spectrum
+<link rel="stylesheet" href="resources\LaTeXML.css" type="text/css"/>
+<link rel="stylesheet" href="resources\ltx-article.css" type="text/css"/>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<div id="section-main">
+
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<div class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Low Power Coding with Balanced Ternary for Communications using spread spectrum</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Hirano Takeshi
+</span><span class="ltx_author_notes"><span>hyranno4pub@gmail.com http://uncotechhack.net</span></span></span></div>
+<div class="ltx_date ltx_role_creation">2020/04/04</div>
+
+<div class="ltx_abstract"><h6 class="ltx_title ltx_title_abstract">Abstract</h6>
+
+<p class="ltx_p">Coding with balanced ternary for communications using spread spectrum is proposed in this article.
+The proposed code with large number of codewords can achieve lower power cost than binary code.
+The proposed code with long spreading code even can achieve larger line rate than binary code.</p>
+
+</div>
+<div id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">1 </span>Power Cost of Binary and Balanced Ternary</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Like as binary represents numbers with symbols <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p1.m1" class="ltx_Math" alttext="\{0,1\}" display="inline"><mrow><mo stretchy="false">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow></math> or <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p1.m2" class="ltx_Math" alttext="\{\bar{1},1\}" display="inline"><mrow><mo stretchy="false">{</mo><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow></math>,
+balanced ternary represents numbers with symbols <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p1.m3" class="ltx_Math" alttext="\{\bar{1},0,1\}" display="inline"><mrow><mo stretchy="false">{</mo><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover><mo>,</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow></math>.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">According to Hartley,
+if transmitter has amplitude range <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p2.m1" class="ltx_Math" alttext="\left[-A,...,+A\right]" display="inline"><mrow><mo>[</mo><mrow><mo>-</mo><mi>A</mi></mrow><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><mo>+</mo><mi>A</mi></mrow><mo>]</mo></mrow></math> volts and the precision of the receiver is <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p2.m2" class="ltx_Math" alttext="\Delta V" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi></mrow></math> volts,
+the maximum number of distinguishable pulse levels <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p2.m3" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> has relation represented as equation<a href="#S1.E1" title="(1) ‣ 1 Power Cost of Binary and Balanced Ternary ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<table id="S4.EGx1" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S1.Ex1"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.Ex1.m1" class="ltx_Math" alttext="\displaystyle N" display="inline"><mi>N</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.Ex1.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.Ex1.m3" class="ltx_Math" alttext="\displaystyle 1+\frac{A}{\Delta V}" display="inline"><mrow><mn>1</mn><mo>+</mo><mstyle displaystyle="true"><mfrac><mi>A</mi><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi></mrow></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+<tbody id="S1.E1"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.E1.m1" class="ltx_Math" alttext="\displaystyle A" display="inline"><mi>A</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.E1.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.E1.m3" class="ltx_Math" alttext="\displaystyle\Delta V(N-1)" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">The amplitude of each symbol can be represented as
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p4.m1" class="ltx_Math" alttext="\{-\Delta V,+\Delta V\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><mo>-</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi></mrow></mrow><mo>,</mo><mrow><mo>+</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></math> for binary and
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p4.m2" class="ltx_Math" alttext="\{-2\Delta V,0,+2\Delta V\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi></mrow></mrow><mo>,</mo><mn>0</mn><mo>,</mo><mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>V</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></math> for balanced ternary.
+With power cost <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p4.m3" class="ltx_Math" alttext="P_{2}" display="inline"><msub><mi>P</mi><mn>2</mn></msub></math> of a binary symbol, power cost of ternary symbol is represented as <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p4.m4" class="ltx_Math" alttext="\{4P_{2},0,4P_{2}\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><mn>4</mn><mo>⁢</mo><msub><mi>P</mi><mn>2</mn></msub></mrow><mo>,</mo><mn>0</mn><mo>,</mo><mrow><mn>4</mn><mo>⁢</mo><msub><mi>P</mi><mn>2</mn></msub></mrow><mo stretchy="false">}</mo></mrow></math>.
+The power cost is different with the symbol in balanced ternary.
+Coding with less symbol <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p4.m5" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S1.p4.m6" class="ltx_Math" alttext="\bar{1}" display="inline"><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover></math>, the power cost of the code can be decreased.</p>
+</div>
+</div>
+<div id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">2 </span>Low Power Coding</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">I propose variable-length code in this article.
+Padding with <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p1.m1" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> will convert it to fixed-length code.
+Communication is assumed to use spread spectrum.
+A single spreading code is used, and it is binary because <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p1.m2" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> does not contribute to voltage level.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p class="ltx_p">Code with minimum number of symbol <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m2" class="ltx_Math" alttext="\bar{1}" display="inline"><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover></math> can be represented as
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m3" class="ltx_Math" alttext="\{1,\bar{1},01,0\bar{1},001,00\bar{1},0001,000\bar{1},...\}" display="inline"><mrow><mo stretchy="false">{</mo><mn>1</mn><mo>,</mo><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover><mo>,</mo><mn>01</mn><mo>,</mo><mrow><mn>0</mn><mo>⁢</mo><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover></mrow><mo>,</mo><mn>001</mn><mo>,</mo><mrow><mn>00</mn><mo>⁢</mo><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover></mrow><mo>,</mo><mn>0001</mn><mo>,</mo><mrow><mn>000</mn><mo>⁢</mo><mover accent="true"><mn>1</mn><mo stretchy="false">¯</mo></mover></mrow><mo>,</mo><mi mathvariant="normal">…</mi><mo stretchy="false">}</mo></mrow></math>.
+With spreading code <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m4" class="ltx_Math" alttext="s" display="inline"><mi>s</mi></math>, the code is
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m5" class="ltx_Math" alttext="\{s,\bar{s},0s,0\bar{s},00s,00\bar{s},000s,000\bar{s},...\}" display="inline"><mrow><mo stretchy="false">{</mo><mi>s</mi><mo>,</mo><mover accent="true"><mi>s</mi><mo stretchy="false">¯</mo></mover><mo>,</mo><mrow><mn>0</mn><mo>⁢</mo><mi>s</mi></mrow><mo>,</mo><mrow><mn>0</mn><mo>⁢</mo><mover accent="true"><mi>s</mi><mo stretchy="false">¯</mo></mover></mrow><mo>,</mo><mrow><mn>00</mn><mo>⁢</mo><mi>s</mi></mrow><mo>,</mo><mrow><mn>00</mn><mo>⁢</mo><mover accent="true"><mi>s</mi><mo stretchy="false">¯</mo></mover></mrow><mo>,</mo><mrow><mn>000</mn><mo>⁢</mo><mi>s</mi></mrow><mo>,</mo><mrow><mn>000</mn><mo>⁢</mo><mover accent="true"><mi>s</mi><mo stretchy="false">¯</mo></mover></mrow><mo>,</mo><mi mathvariant="normal">…</mi><mo stretchy="false">}</mo></mrow></math>.
+Each codeword can be send with the power cost of a single spreading code.
+Because <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m6" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> cannot be spreaded,
+time length of the symbol <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m7" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> can be shortened from the time length of the symbol <math xmlns="http://www.w3.org/1998/Math/MathML" id="S2.p2.m8" class="ltx_Math" alttext="s" display="inline"><mi>s</mi></math>.
+In other words, the codeword consists of
+the sign of the spreading code and
+the period between the spreading code and the former spreading code.</p>
+</div>
+</div>
+<div id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">3 </span>Characteristics</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">In this section, I reveal the characteristics of the proposed code comparing to the binary code.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">Each codeword appears in equal possibility.
+Equations uses
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m1" class="ltx_Math" alttext="T_{0}" display="inline"><msub><mi>T</mi><mn>0</mn></msub></math> as the time length of a symbol <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m2" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m3" class="ltx_Math" alttext="T_{s}" display="inline"><msub><mi>T</mi><mi>s</mi></msub></math> as the time length of the spreading code,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m4" class="ltx_Math" alttext="N_{c}" display="inline"><msub><mi>N</mi><mi>c</mi></msub></math> as the number of multiple access,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m5" class="ltx_Math" alttext="N_{w}" display="inline"><msub><mi>N</mi><mi>w</mi></msub></math> as the number of the codewords,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m6" class="ltx_Math" alttext="N_{0}" display="inline"><msub><mi>N</mi><mn>0</mn></msub></math> as the number of the levels of the continuous time length sending <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m7" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>,
+and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m8" class="ltx_Math" alttext="H" display="inline"><mi>H</mi></math> as the mean information content of the codewords.
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m9" class="ltx_Math" alttext="N_{0}" display="inline"><msub><mi>N</mi><mn>0</mn></msub></math> is represented as equation<a href="#S3.E2" title="(2) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>.
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p2.m10" class="ltx_Math" alttext="H" display="inline"><mi>H</mi></math> is represented as equation<a href="#S3.E3" title="(3) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>.</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<table id="S4.EGx2" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E2"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E2.m1" class="ltx_Math" alttext="\displaystyle N_{0}=\frac{N_{w}}{2}" display="inline"><mrow><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><mstyle displaystyle="true"><mfrac><msub><mi>N</mi><mi>w</mi></msub><mn>2</mn></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(2)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p4" class="ltx_para">
+<table id="S4.EGx3" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E3"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex2.m1" class="ltx_Math" alttext="\displaystyle H" display="inline"><mi>H</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex2.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex2.m3" class="ltx_Math" alttext="\displaystyle\log_{2}(N_{w})" display="inline"><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3)</span></td></tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"/>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E3.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E3.m3" class="ltx_Math" alttext="\displaystyle\log_{2}(2N_{0})" display="inline"><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>N</mi><mn>0</mn></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+</table>
+</div>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">For the proposed code, equations<a href="#S3.E4" title="(4) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a> to <a href="#S3.E7" title="(7) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a> reapresent
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p5.m1" class="ltx_Math" alttext="P_{a3}" display="inline"><msub><mi>P</mi><mrow><mi>a</mi><mo>⁢</mo><mn>3</mn></mrow></msub></math> as the power cost of a codeword,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p5.m2" class="ltx_Math" alttext="T_{a3}" display="inline"><msub><mi>T</mi><mrow><mi>a</mi><mo>⁢</mo><mn>3</mn></mrow></msub></math> as the average time length of codewords,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p5.m3" class="ltx_Math" alttext="P_{h3}" display="inline"><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>3</mn></mrow></msub></math> as the mean power cost per information content,
+and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p5.m4" class="ltx_Math" alttext="R_{3}" display="inline"><msub><mi>R</mi><mn>3</mn></msub></math> as the line rate.</p>
+</div>
+<div id="S3.p6" class="ltx_para">
+<table id="S4.EGx4" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E4"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E4.m1" class="ltx_Math" alttext="\displaystyle P_{a3}=4P_{2}" display="inline"><mrow><msub><mi>P</mi><mrow><mi>a</mi><mo>⁢</mo><mn>3</mn></mrow></msub><mo>=</mo><mrow><mn>4</mn><mo>⁢</mo><msub><mi>P</mi><mn>2</mn></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(4)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p7" class="ltx_para">
+<table id="S4.EGx5" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E5"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E5.m1" class="ltx_Math" alttext="\displaystyle T_{a3}=T_{s}+\frac{T_{0}(N_{0}-1)}{2}" display="inline"><mrow><msub><mi>T</mi><mrow><mi>a</mi><mo>⁢</mo><mn>3</mn></mrow></msub><mo>=</mo><mrow><msub><mi>T</mi><mi>s</mi></msub><mo>+</mo><mstyle displaystyle="true"><mfrac><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>N</mi><mn>0</mn></msub><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mn>2</mn></mfrac></mstyle></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(5)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p8" class="ltx_para">
+<table id="S4.EGx6" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E6"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex3.m1" class="ltx_Math" alttext="\displaystyle P_{h3}" display="inline"><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>3</mn></mrow></msub></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex3.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex3.m3" class="ltx_Math" alttext="\displaystyle\frac{P_{a3}}{H}" display="inline"><mstyle displaystyle="true"><mfrac><msub><mi>P</mi><mrow><mi>a</mi><mo>⁢</mo><mn>3</mn></mrow></msub><mi>H</mi></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(6)</span></td></tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"/>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E6.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E6.m3" class="ltx_Math" alttext="\displaystyle\frac{4P_{2}}{\log_{2}(N_{w})}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><mn>4</mn><mo>⁢</mo><msub><mi>P</mi><mn>2</mn></msub></mrow><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+</table>
+</div>
+<div id="S3.p9" class="ltx_para">
+<table id="S4.EGx7" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E7"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex4.m1" class="ltx_Math" alttext="\displaystyle R_{3}" display="inline"><msub><mi>R</mi><mn>3</mn></msub></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex4.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex4.m3" class="ltx_Math" alttext="\displaystyle N_{c}\frac{H}{T_{a3}}" display="inline"><mrow><msub><mi>N</mi><mi>c</mi></msub><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mi>H</mi><msub><mi>T</mi><mrow><mi>a</mi><mo>⁢</mo><mn>3</mn></mrow></msub></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(7)</span></td></tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"/>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E7.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E7.m3" class="ltx_Math" alttext="\displaystyle\frac{N_{c}\log_{2}(2N_{0})}{T_{s}+\frac{T_{0}(N_{0}-1)}{2}}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><msub><mi>N</mi><mi>c</mi></msub><mo>⁢</mo><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>N</mi><mn>0</mn></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mrow><msub><mi>T</mi><mi>s</mi></msub><mo>+</mo><mfrac><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>N</mi><mn>0</mn></msub><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+</table>
+</div>
+<div id="S3.p10" class="ltx_para">
+<p class="ltx_p">For the binary code, equations<a href="#S3.E8" title="(8) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">8</span></a> to <a href="#S3.E11" title="(11) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11</span></a> reapresent
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p10.m1" class="ltx_Math" alttext="P_{a2}" display="inline"><msub><mi>P</mi><mrow><mi>a</mi><mo>⁢</mo><mn>2</mn></mrow></msub></math> as the power cost of a codeword,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p10.m2" class="ltx_Math" alttext="T_{a2}" display="inline"><msub><mi>T</mi><mrow><mi>a</mi><mo>⁢</mo><mn>2</mn></mrow></msub></math> as the average time length of codewords,
+<math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p10.m3" class="ltx_Math" alttext="P_{h2}" display="inline"><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>2</mn></mrow></msub></math> as the mean power cost per information content,
+and <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p10.m4" class="ltx_Math" alttext="R_{2}" display="inline"><msub><mi>R</mi><mn>2</mn></msub></math> as the line rate.</p>
+</div>
+<div id="S3.p11" class="ltx_para">
+<table id="S4.EGx8" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E8"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E8.m1" class="ltx_Math" alttext="\displaystyle P_{a2}=P_{2}\log_{2}(N_{w})" display="inline"><mrow><msub><mi>P</mi><mrow><mi>a</mi><mo>⁢</mo><mn>2</mn></mrow></msub><mo>=</mo><mrow><msub><mi>P</mi><mn>2</mn></msub><mo>⁢</mo><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(8)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p12" class="ltx_para">
+<table id="S4.EGx9" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E9"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E9.m1" class="ltx_Math" alttext="\displaystyle T_{a2}=T_{s}\log_{2}(N_{w})" display="inline"><mrow><msub><mi>T</mi><mrow><mi>a</mi><mo>⁢</mo><mn>2</mn></mrow></msub><mo>=</mo><mrow><msub><mi>T</mi><mi>s</mi></msub><mo>⁢</mo><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(9)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p13" class="ltx_para">
+<table id="S4.EGx10" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E10"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex5.m1" class="ltx_Math" alttext="\displaystyle P_{h2}" display="inline"><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>2</mn></mrow></msub></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex5.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex5.m3" class="ltx_Math" alttext="\displaystyle\frac{P_{a2}}{H}" display="inline"><mstyle displaystyle="true"><mfrac><msub><mi>P</mi><mrow><mi>a</mi><mo>⁢</mo><mn>2</mn></mrow></msub><mi>H</mi></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(10)</span></td></tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"/>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E10.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E10.m3" class="ltx_Math" alttext="\displaystyle P_{2}" display="inline"><msub><mi>P</mi><mn>2</mn></msub></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+</table>
+</div>
+<div id="S3.p14" class="ltx_para">
+<table id="S4.EGx11" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E11"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex6.m1" class="ltx_Math" alttext="\displaystyle R_{2}" display="inline"><msub><mi>R</mi><mn>2</mn></msub></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex6.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex6.m3" class="ltx_Math" alttext="\displaystyle N_{c}\frac{H}{T_{a2}}" display="inline"><mrow><msub><mi>N</mi><mi>c</mi></msub><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mi>H</mi><msub><mi>T</mi><mrow><mi>a</mi><mo>⁢</mo><mn>2</mn></mrow></msub></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(11)</span></td></tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"/>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E11.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E11.m3" class="ltx_Math" alttext="\displaystyle\frac{N_{c}}{T_{s}}" display="inline"><mstyle displaystyle="true"><mfrac><msub><mi>N</mi><mi>c</mi></msub><msub><mi>T</mi><mi>s</mi></msub></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+</table>
+</div>
+<div id="S3.p15" class="ltx_para">
+<p class="ltx_p"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p15.m1" class="ltx_Math" alttext="P_{h3}/P_{h2}" display="inline"><mrow><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>3</mn></mrow></msub><mo>/</mo><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>2</mn></mrow></msub></mrow></math>, the power cost ratio of the proposed code to the binary code, is represented as equation<a href="#S3.E12" title="(12) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12</span></a>.
+The condition to achieve <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p15.m2" class="ltx_Math" alttext="P_{h3}/P_{h2}&lt;1" display="inline"><mrow><mrow><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>3</mn></mrow></msub><mo>/</mo><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>2</mn></mrow></msub></mrow><mo>&lt;</mo><mn>1</mn></mrow></math> is represented as equation<a href="#S3.E13" title="(13) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13</span></a>.
+Figure<a href="#S3.F1" title="Figure 1 ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> shows equation<a href="#S3.E12" title="(12) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12</span></a>.
+You can see that the power cost ratio get smaller with the larger number of codewords.</p>
+</div>
+<div id="S3.p16" class="ltx_para">
+<table id="S4.EGx12" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E12"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E12.m1" class="ltx_Math" alttext="\displaystyle\frac{P_{h3}}{P_{h2}}=\frac{4}{\log_{2}(N_{w})}" display="inline"><mrow><mstyle displaystyle="true"><mfrac><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>3</mn></mrow></msub><msub><mi>P</mi><mrow><mi>h</mi><mo>⁢</mo><mn>2</mn></mrow></msub></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true"><mfrac><mn>4</mn><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(12)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.p17" class="ltx_para">
+<table id="S4.EGx13" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E13"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E13.m1" class="ltx_Math" alttext="\displaystyle N_{w}&gt;16" display="inline"><mrow><msub><mi>N</mi><mi>w</mi></msub><mo>&gt;</mo><mn>16</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(13)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.F1" class="ltx_figure"><object type="image/svg+xml" data="./resources/P.svg" id="S3.F1.g1" class="ltx_graphics ltx_centering" alt=""></object>
+<div class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>power cost ratio of the proposed code to the binary code</div>
+</div>
+<div id="S3.p18" class="ltx_para">
+<br class="ltx_break"/>
+</div>
+<div id="S3.p19" class="ltx_para">
+<p class="ltx_p"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p19.m1" class="ltx_Math" alttext="R_{3}/R_{2}" display="inline"><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>/</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></math>, the line rate ratio of the proposed code to the binary code, is represented as equation<a href="#S3.E14" title="(14) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">14</span></a>.
+The condition to achieve <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p19.m2" class="ltx_Math" alttext="R_{3}/R_{2}&gt;1" display="inline"><mrow><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>/</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><mo>&gt;</mo><mn>1</mn></mrow></math> is represented as equation<a href="#S3.E15" title="(15) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">15</span></a>.
+Figure<a href="#S3.F2" title="Figure 2 ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a> shows equation<a href="#S3.E14" title="(14) ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">14</span></a>.
+In Figure<a href="#S3.F2" title="Figure 2 ‣ 3 Characteristics ‣ Low Power Coding with Balanced Ternary for Communications using spread spectrum" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>, horizontal axis shows <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p19.m3" class="ltx_Math" alttext="N_{w}" display="inline"><msub><mi>N</mi><mi>w</mi></msub></math>, vertical axis shows <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p19.m4" class="ltx_Math" alttext="T_{0}/T_{s}" display="inline"><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>/</mo><msub><mi>T</mi><mi>s</mi></msub></mrow></math>, and color bar shows <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p19.m5" class="ltx_Math" alttext="R_{3}/R_{2}" display="inline"><mrow><msub><mi>R</mi><mn>3</mn></msub><mo>/</mo><msub><mi>R</mi><mn>2</mn></msub></mrow></math>.
+You can see that the line rate ratio get larger with the smaller <math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.p19.m6" class="ltx_Math" alttext="T_{0}/T_{s}" display="inline"><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>/</mo><msub><mi>T</mi><mi>s</mi></msub></mrow></math>,
+or namely the larger length of the spreading code.</p>
+</div>
+<div id="S3.p20" class="ltx_para">
+<table id="S4.EGx14" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E14"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex7.m1" class="ltx_Math" alttext="\displaystyle\frac{R_{3}}{R_{2}}" display="inline"><mstyle displaystyle="true"><mfrac><msub><mi>R</mi><mn>3</mn></msub><msub><mi>R</mi><mn>2</mn></msub></mfrac></mstyle></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex7.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.Ex7.m3" class="ltx_Math" alttext="\displaystyle\frac{T_{s}\log_{2}(2N_{0})}{T_{s}+\frac{T_{0}(N_{0}-1)}{2}}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><msub><mi>T</mi><mi>s</mi></msub><mo>⁢</mo><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>N</mi><mn>0</mn></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mrow><msub><mi>T</mi><mi>s</mi></msub><mo>+</mo><mfrac><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>N</mi><mn>0</mn></msub><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mn>2</mn></mfrac></mrow></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(14)</span></td></tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"/>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E14.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E14.m3" class="ltx_Math" alttext="\displaystyle\frac{\log_{2}(N_{w})}{1+\frac{T_{0}}{T_{s}}\frac{N_{w}-2}{4}}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mrow><mn>1</mn><mo>+</mo><mrow><mfrac><msub><mi>T</mi><mn>0</mn></msub><msub><mi>T</mi><mi>s</mi></msub></mfrac><mo>⁢</mo><mfrac><mrow><msub><mi>N</mi><mi>w</mi></msub><mo>-</mo><mn>2</mn></mrow><mn>4</mn></mfrac></mrow></mrow></mfrac></mstyle></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/></tr></tbody>
+</table>
+</div>
+<div id="S3.p21" class="ltx_para">
+<table id="S4.EGx15" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S3.E15"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"/>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math xmlns="http://www.w3.org/1998/Math/MathML" id="S3.E15.m1" class="ltx_Math" alttext="\displaystyle 4\frac{\log_{2}(N_{w})-1}{N_{w}-2}&gt;\frac{T_{0}}{T_{s}}" display="inline"><mrow><mrow><mn>4</mn><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo stretchy="false">(</mo><msub><mi>N</mi><mi>w</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mn>1</mn></mrow><mrow><msub><mi>N</mi><mi>w</mi></msub><mo>-</mo><mn>2</mn></mrow></mfrac></mstyle></mrow><mo>&gt;</mo><mstyle displaystyle="true"><mfrac><msub><mi>T</mi><mn>0</mn></msub><msub><mi>T</mi><mi>s</mi></msub></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"/>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(15)</span></td></tr></tbody>
+</table>
+</div>
+<div id="S3.F2" class="ltx_figure"><object type="image/svg+xml" data="./resources/R.svg" id="S3.F2.g1" class="ltx_graphics ltx_centering" alt=""></object>
+<div class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 2: </span>line rate ratio of the proposed code to the binary code</div>
+</div>
+<div id="S3.p22" class="ltx_para">
+<br class="ltx_break"/>
+</div>
+<div id="S3.p23" class="ltx_para">
+<p class="ltx_p">It is still unclear that the proposed code fits in Shannon-Hartley theorem.
+In Hartley’s law, information content of a pulse is
+logarithm of the number of distinguishable pulse levels.
+But in proposed code, information content depends on
+the number of distinguishable time period levels between pulses rather than pulse levels.</p>
+</div>
+</div>
+<div id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section"><span class="ltx_tag ltx_tag_section">4 </span>Conclusion</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">Coding with balanced ternary for communications using spread spectrum is proposed in this article.
+The proposed code with large number of codewords can achieve lower power cost than binary code.
+The proposed code with long spreading code even can achieve larger line rate than binary code.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Apr  4 12:05:09 2020 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"/></a></div></div>
+</div>
+
+</div>

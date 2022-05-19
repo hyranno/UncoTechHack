@@ -1,0 +1,23 @@
+Copyright (c) YEAR Takeshi Hirano
+Permission is hereby granted, free of charge,
+to any person obtaining a copy of this document (the "Document"),
+to deal in the Document without restriction,
+
+subject to the following conditions:
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions of the Document.
+
+***ATTENSION***
+This license is ONLY associated with the Document itself,
+but NOT with the idea described in the Document.
+All actions are subject to restrictions, licenses and patents associated to the idea
+at your own risk and responsibility.
+
+The Document is provided “as is”, without warranty of any kind, express or implied,
+including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement.
+
+In no event shall the authors or copyright holders be liable for any claim,
+damages or other liability, whether in an action of contract, tort or otherwise,
+arising from, out of or in connection with the Document or the use or other dealings in the Document.
+***
