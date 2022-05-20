@@ -2,6 +2,15 @@
 
   <div class="update-log-item">
     <span class="date">
+      2022-05-20
+    </span>
+    <span class="description">
+      fixed page alignment
+    </span>
+  </div>
+
+  <div class="update-log-item">
+    <span class="date">
       2020-05-24
     </span>
     <span class="description">

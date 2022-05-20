@@ -29,36 +29,36 @@ The number of tooth of a sun gear, a outer gear, a planetary carrier and planeta
   \(z_{s}\), \(z_{o}\) and \(z_{p}\) in this article.
 <br />
 The relation among the rotational speed and the number of tooth in a planetary gear mechanism is represented as below.
-\[
-\omega_{p} = \omega_{c} - (\omega_{s} - \omega_{c})\frac{z_{s}}{z_{p}} \\
-\omega_{o} = \omega_{c} - (\omega_{s} - \omega_{c})\frac{z_{s}}{z_{o}}
-\]
+\begin{align}
+\omega_{p} &= \omega_{c} - (\omega_{s} - \omega_{c})\frac{z_{s}}{z_{p}} \\
+\omega_{o} &= \omega_{c} - (\omega_{s} - \omega_{c})\frac{z_{s}}{z_{o}}
+\end{align}
 <br />
 <br />
 
 <h3>Basic idea</h3>
 When the favorable rotational speed of engine and the output rotational speed are given as \(\omega_{opt}\) and \(\omega_{out}\),
   the required gear ratio \(g_{r}\) can be represented as below.
-\[
+\begin{align}
 \omega_{out} = \omega_{opt}g_{r}
-\]
+\end{align}
 
 On the other hand,
   gear ratio with a planetary gear mechanism
   using the planetary carrier as a input and the sun gear as a output
   can be represented as below.
-\[
-\omega_{s1} = \omega_{c1}g_{r} \\
-g_{r} = \frac{\omega_{s1}}{\omega_{c1}}
- = \frac{\omega_{s1}(1+k_{1})}{\omega_{o1}+k_{1}\omega_{s1}} \\
-k_{1} = \frac{z_{s1}}{z_{o1}} \\
-\]
+\begin{align}
+\omega_{s1} &= \omega_{c1}g_{r} \\
+g_{r} &= \frac{\omega_{s1}}{\omega_{c1}} \\
+ &= \frac{\omega_{s1}(1+k_{1})}{\omega_{o1}+k_{1}\omega_{s1}} \\
+k_{1} &= \frac{z_{s1}}{z_{o1}} \\
+\end{align}
 
 Then outer gear as a control input need to match the equation below.
-\[
-\omega_{o1} = \omega_{opt}(1+k_{1})-k_{1}\omega_{s1}
- = k_{1}\left(2\left(\omega_{opt}\frac{1+k_{1}}{2k_{1}}\right)-\omega_{s1}\right)\\
-\]
+\begin{align}
+\omega_{o1} &= \omega_{opt}(1+k_{1})-k_{1}\omega_{s1} \\
+ &= k_{1}\left(2\left(\omega_{opt}\frac{1+k_{1}}{2k_{1}}\right)-\omega_{s1}\right)\\
+\end{align}
 
 When this \(\omega_{o1}\) feedback can be made from \(\omega_{s1}\),
   passive continuous variable transmission can be done.
@@ -70,14 +70,12 @@ When this \(\omega_{o1}\) feedback can be made from \(\omega_{s1}\),
 With \(\omega_{const}\), \(f_{d}\) and \(f_{k}\) which are represented as below,
   \(\omega_{o1}\) can be represented as below.
 
-\[
-\omega_{const} = \omega_{opt}\frac{1+k_{1}}{2k_{1}} \\
-f_{d}(\omega_{1}, \omega_{2}) = 2\omega_{1}-\omega_{2} \\
-f_{k}(\omega) = k_{1}\omega
-\]
-\[
-  \omega_{o1} = f_{k}(f_{d}(\omega_{const}, \omega_{s1}))
-\]
+\begin{align}
+\omega_{const} &= \omega_{opt}\frac{1+k_{1}}{2k_{1}} \\
+f_{d}(\omega_{1}, \omega_{2}) &= 2\omega_{1}-\omega_{2} \\
+f_{k}(\omega) &= k_{1}\omega \\
+\omega_{o1} &= f_{k}(f_{d}(\omega_{const}, \omega_{s1}))
+\end{align}
 
 \(f_{k}\) can be implemented as a planetary gear mechanism, or something other speed increaser.
 \(f_{d}\) can be implemented as a differential gear.
@@ -96,9 +94,9 @@ By the way, clutch needs a input to accelerate the output.
 In this article, we use \(C_{c}\omega_{s1}\) as input where \(C_{c}\) is constant.
 Then if the output is lower than \(\omega_{low}\), it will be equal to \(C_{c}\omega_{s1}\).
 In this case, this transmission provides minimum gear ratio \(g_{rmin}\) as below.
-\[
+\begin{align}
   g_{rmin} = \frac{1+k_{1}}{2k_{1}C_{c}}
-\]
+\end{align}
 
 <h4>Overview</h4>
 The skeleton diagram of a proposed transmission can be like Fig2.
